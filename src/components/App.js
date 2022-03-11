@@ -1,11 +1,13 @@
 import Counter from "./Counter";
 import List from "./List";
+import Form from "./form/Form";
 
 function App() {
   return (
     <div>
-      <Counter />
-      <List />
+      {/* <Counter />
+      <List /> */}
+      <Form />
     </div>
   );
 }

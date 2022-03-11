@@ -27,20 +27,27 @@ function List() {
     setNewTask(event.target.value);
   }
 
-  function handleDeleteClick(taskIndex) {
+  function handleDeleteClick(task) {
     const clone = [...tasks];
-    clone.splice(taskIndex, 1);
 
-    setTasks(clone);
+    const index = tasks.findIndex(
+      (currentElement) => currentElement.id === task
+    );
+
+    if (index > -1) {
+      clone.splice(index, 1);
+
+      setTasks(clone);
+    }
   }
 
   return (
     <div>
       <ul>
-        {tasks.map((currentTaskStr, i) => (
+        {tasks.map((currentTaskStr) => (
           <li>
             {currentTaskStr}
-            <button onClick={() => handleDeleteClick(i)}>-</button>
+            <button onClick={() => handleDeleteClick(currentTaskStr)}>-</button>
           </li>
         ))}
       </ul>
